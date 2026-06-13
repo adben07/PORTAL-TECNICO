@@ -3,86 +3,345 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portal Técnico</title>
+<title>SGI - Informe Técnico</title>
 
 <style>
+
+*{
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
 body{
-font-family:Arial,sans-serif;
-background:#f5f5f5;
+background:#f4f6f9;
 margin:0;
 padding:20px;
 }
 
+.container{
+max-width:1200px;
+margin:auto;
+background:#fff;
+padding:30px;
+border-radius:12px;
+box-shadow:0 2px 10px rgba(0,0,0,.15);
+}
+
 h1{
 text-align:center;
+color:#003366;
+margin-bottom:5px;
 }
 
-.contenedor{
-display:flex;
-gap:20px;
-justify-content:center;
-flex-wrap:wrap;
-}
-
-.columna{
-background:white;
-width:300px;
-min-height:500px;
-padding:15px;
-border-radius:10px;
-box-shadow:0 2px 8px rgba(0,0,0,0.2);
-}
-
-.columna h2{
+.subtitulo{
 text-align:center;
+color:#666;
+margin-bottom:30px;
 }
 
-.tarjeta{
-background:#e8f0fe;
+.section{
+margin-bottom:25px;
+padding:20px;
+border:1px solid #ddd;
+border-radius:10px;
+}
+
+.section h2{
+margin-top:0;
+color:#003366;
+}
+
+.row{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+margin-bottom:15px;
+}
+
+.field{
+flex:1;
+min-width:250px;
+display:flex;
+flex-direction:column;
+}
+
+label{
+font-weight:bold;
+margin-bottom:5px;
+}
+
+input,
+select,
+textarea{
 padding:10px;
-margin-bottom:10px;
-border-radius:8px;
+border:1px solid #ccc;
+border-radius:6px;
+font-size:14px;
 }
-</style>
-</head>
 
+textarea{
+min-height:120px;
+resize:vertical;
+}
+
+.actions{
+display:flex;
+gap:10px;
+flex-wrap:wrap;
+justify-content:center;
+margin-top:30px;
+}
+
+button{
+background:#003366;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:8px;
+cursor:pointer;
+font-size:15px;
+}
+
+button:hover{
+opacity:.9;
+}
+
+.logo{
+text-align:center;
+font-size:20px;
+font-weight:bold;
+color:#003366;
+margin-bottom:20px;
+}
+
+@media print{
+
+.actions{
+display:none;
+}
+
+body{
+background:white;
+}
+
+.container{
+box-shadow:none;
+border:none;
+}
+
+}
+
+</style>
+
+</head>
 <body>
 
-<h1>PORTAL TÉCNICO</h1>
+<div class="container">
 
-<div class="contenedor">
+<div class="logo">
+SGI - SISTEMA DE GESTIÓN DE INFORMES
+</div>
 
-<div class="columna">
-<h2>📥 Solicitud Recibida</h2>
+<h1>INFORME TÉCNICO DE SERVICIO</h1>
+<p class="subtitulo">Registro de mantenimiento y atención técnica</p>
 
-<div class="tarjeta">
-Cliente: Ejemplo<br>
-Equipo: Aire acondicionado<br>
-Estado: Pendiente
+<!-- INFORMACION GENERAL -->
+
+<div class="section">
+
+<h2>Información General</h2>
+
+<div class="row">
+
+<div class="field">
+<label>Consecutivo SGI</label>
+<input id="sgi" readonly>
+</div>
+
+<div class="field">
+<label>Programación</label>
+<input type="date">
 </div>
 
 </div>
 
-<div class="columna">
-<h2>📅 Programado</h2>
+<div class="row">
 
-<div class="tarjeta">
-Técnico: Juan Pérez<br>
-Fecha: 15/06/2026
+<div class="field">
+<label>Máquina</label>
+<input type="text">
+</div>
+
+<div class="field">
+<label>Activo</label>
+<input type="text">
 </div>
 
 </div>
 
-<div class="columna">
-<h2>✅ Servicio Ejecutado</h2>
+<div class="row">
 
-<div class="tarjeta">
-Informe entregado
+<div class="field">
+<label>Fecha creación informe</label>
+<input type="date" id="fechaCreacion">
+</div>
+
+<div class="field">
+<label>Fecha finalización informe</label>
+<input type="date">
 </div>
 
 </div>
 
 </div>
+
+<!-- DESARROLLO TECNICO -->
+
+<div class="section">
+
+<h2>Desarrollo Técnico</h2>
+
+<div class="row">
+
+<div class="field">
+<label>Tipo de falla</label>
+<select>
+<option value="">Seleccione</option>
+<option>Operativo</option>
+<option>Intempestivo</option>
+<option>Envejecimiento</option>
+<option>Capacitación</option>
+</select>
+</div>
+
+</div>
+
+<div class="field">
+<label>Diagnóstico</label>
+<textarea></textarea>
+</div>
+
+<br>
+
+<div class="field">
+<label>Actividades realizadas</label>
+<textarea></textarea>
+</div>
+
+<br>
+
+<div class="field">
+<label>Repuestos instalados</label>
+<textarea></textarea>
+</div>
+
+<br>
+
+<div class="field">
+<label>Repuestos pendientes</label>
+<textarea></textarea>
+</div>
+
+<br>
+
+<div class="field">
+<label>Observaciones</label>
+<textarea></textarea>
+</div>
+
+</div>
+
+<!-- EVIDENCIAS -->
+
+<div class="section">
+
+<h2>Evidencias</h2>
+
+<div class="row">
+
+<div class="field">
+<label>Imágenes</label>
+<input type="file" accept="image/*" multiple>
+</div>
+
+<div class="field">
+<label>Videos</label>
+<input type="file" accept="video/*" multiple>
+</div>
+
+</div>
+
+</div>
+
+<!-- RESPONSABLES -->
+
+<div class="section">
+
+<h2>Responsables</h2>
+
+<div class="row">
+
+<div class="field">
+<label>Nombre completo del técnico</label>
+<input type="text">
+</div>
+
+<div class="field">
+<label>Nombre completo responsable de recibir el servicio</label>
+<input type="text">
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="field">
+<label>Cargo</label>
+<input type="text">
+</div>
+
+</div>
+
+</div>
+
+<!-- ACCIONES -->
+
+<div class="actions">
+
+<button onclick="window.print()">
+📄 Generar PDF / Imprimir
+</button>
+
+<button type="button">
+📧 Enviar PDF por Correo
+</button>
+
+<button type="button">
+☁️ Guardar en Airtable
+</button>
+
+<button type="button">
+💾 Guardar Borrador
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+const hoy = new Date();
+
+document.getElementById("fechaCreacion").value =
+hoy.toISOString().split("T")[0];
+
+document.getElementById("sgi").value =
+"SGI-" +
+hoy.getFullYear() +
+"-" +
+Math.floor(Math.random()*9000+1000);
+
+</script>
 
 </body>
 </html>
