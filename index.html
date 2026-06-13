@@ -2,362 +2,853 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SGI - Informe Técnico</title>
 
-    <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        *{
-            box-sizing:border-box;
-            font-family:Arial, Helvetica, sans-serif;
-        }
+<title>SGI - Informe Técnico</title>
 
-        body{
-            background:#f4f6f9;
-            margin:0;
-            padding:20px;
-        }
+<style>
 
-        .container{
-            max-width:1200px;
-            margin:auto;
-            background:white;
-            padding:30px;
-            border-radius:12px;
-            box-shadow:0 2px 10px rgba(0,0,0,.15);
-        }
+/* ====================================================
+   IDENTIDAD VISUAL SGI
+   Inspirada en el logo de engranaje verde
+==================================================== */
 
-        .section{
-            margin-bottom:25px;
-            padding:20px;
-            border:1px solid #ddd;
-            border-radius:10px;
-        }
+:root{
 
-        .section h2{
-            color:#003366;
-        }
+    --verde-principal:#0B3D2E;
+    --verde-secundario:#2E5E4E;
+    --verde-claro:#DDEAE4;
 
-        .row{
-            display:flex;
-            gap:15px;
-            flex-wrap:wrap;
-            margin-bottom:15px;
-        }
+    --gris-fondo:#F4F6F9;
+    --blanco:#FFFFFF;
 
-        .field{
-            flex:1;
-            min-width:250px;
-            display:flex;
-            flex-direction:column;
-        }
+}
 
-        input, select, textarea{
-            padding:10px;
-            border:1px solid #ccc;
-            border-radius:6px;
-        }
+*{
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
 
-        textarea{
-            min-height:100px;
-        }
+body{
 
-        button{
-            background:#003366;
-            color:white;
-            border:none;
-            padding:12px 20px;
-            border-radius:8px;
-            cursor:pointer;
-        }
+    background:var(--gris-fondo);
 
-    </style>
+    margin:0;
+    padding:0;
+
+}
+
+/* ==========================================
+   BARRA SUPERIOR
+========================================== */
+
+.navbar{
+
+    position:sticky;
+    top:0;
+
+    background:var(--verde-principal);
+
+    padding:15px;
+
+    z-index:1000;
+
+    display:flex;
+    justify-content:center;
+    gap:15px;
+
+}
+
+.navbar a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    padding:10px 15px;
+
+    border-radius:8px;
+
+}
+
+.navbar a:hover{
+
+    background:var(--verde-secundario);
+
+}
+
+/* ==========================================
+   CONTENEDOR GENERAL
+========================================== */
+
+.container{
+
+    max-width:1200px;
+
+    margin:auto;
+
+    padding:20px;
+
+}
+
+.card{
+
+    background:white;
+
+    padding:25px;
+
+    margin-top:20px;
+
+    border-radius:15px;
+
+    box-shadow:0 3px 12px rgba(0,0,0,.12);
+
+}
+
+/* ==========================================
+   ENCABEZADO
+========================================== */
+
+.header{
+
+    text-align:center;
+
+    padding:20px;
+
+}
+
+.header img{
+
+    width:140px;
+
+}
+
+.header h1{
+
+    color:var(--verde-principal);
+
+    margin-bottom:5px;
+
+}
+
+.header p{
+
+    color:#666;
+
+}
+
+/* ==========================================
+   FORMULARIOS
+========================================== */
+
+.row{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.field{
+
+    flex:1;
+
+    min-width:250px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    margin-bottom:15px;
+
+}
+
+label{
+
+    font-weight:bold;
+
+    margin-bottom:5px;
+
+}
+
+input,
+select,
+textarea{
+
+    padding:12px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    font-size:14px;
+
+}
+
+textarea{
+
+    min-height:120px;
+
+    resize:vertical;
+
+}
+
+.readonly{
+
+    background:#f1f1f1;
+
+}
+
+/* ==========================================
+   TITULOS DE BLOQUES
+========================================== */
+
+.section-title{
+
+    color:var(--verde-principal);
+
+    border-bottom:3px solid var(--verde-principal);
+
+    padding-bottom:10px;
+
+    margin-bottom:20px;
+
+}
+
+</style>
 
 </head>
 
 <body>
 
+<!-- ==========================================
+     BARRA DE NAVEGACIÓN RÁPIDA
+========================================== -->
+
+<div class="navbar">
+
+    <a href="#cliente">🏢 Cliente</a>
+
+    <a href="#ejecucion">🔧 Ejecución</a>
+
+    <a href="#cierre">✅ Cierre</a>
+
+</div>
+
 <div class="container">
 
-    <h1>SGI - INFORME TÉCNICO</h1>
+<!-- ==========================================
+     ENCABEZADO SGI
+========================================== -->
 
-    <!-- AQUÍ AGREGAREMOS LOS BLOQUES -->
+<div class="card header">
 
-    <div class="section">
+    <!-- Más adelante aquí pondremos el logo -->
 
-    <h2>Información del colaborador</h2>
+    <h1>SGI - Sistema de Gestión de Informes</h1>
 
-    <div class="row">
+    <p>Special Group Ingenieros</p>
 
-        <div class="field">
-            <label>Cliente</label>
-            <input type="text" readonly>
-        </div>
+</div>
 
-        <div class="field">
-            <label>Dirección</label>
-            <input type="text" readonly>
-        </div>
+<!-- ==========================================
+     ETAPA 2
+     INFORMACIÓN DEL COLABORADOR
+     SOLO LECTURA DESDE AIRTABLE
+========================================== -->
 
-    </div>
+<div class="card" id="cliente">
 
-    <div class="row">
+<h2 class="section-title">
 
-        <div class="field">
-            <label>Teléfono</label>
-            <input type="text" readonly>
-        </div>
+🏢 Información del colaborador
 
-        <div class="field">
-            <label>Persona encargada</label>
-            <input type="text" readonly>
-        </div>
+</h2>
+
+<div class="row">
+
+    <div class="field">
+
+        <label>Consecutivo SGI</label>
+
+        <input id="sgi"
+               class="readonly"
+               readonly>
 
     </div>
 
     <div class="field">
-        <label>Novedad reportada</label>
-        <textarea readonly></textarea>
-    </div>
+
+        <label>Programación</label>
+
+        <input id="programacion"
+               class="readonly"
+               readonly>
 
     </div>
 
 </div>
 
-</body>
-</html>
+<div class="row">
 
+    <div class="field">
 
-<div class="section">
+        <label>Cliente</label>
 
-    <h2>Información General</h2>
-
-    <div class="row">
-
-        <div class="field">
-            <label>Consecutivo SGI</label>
-            <input id="sgi" readonly>
-        </div>
-
-        <div class="field">
-            <label>Programación</label>
-            <input id="programacion" readonly>
-        </div>
+        <input id="clienteNombre"
+               class="readonly"
+               readonly>
 
     </div>
 
-    <div class="row">
+    <div class="field">
 
-        <div class="field">
-            <label>Máquina</label>
+        <label>Dirección</label>
 
-            <select id="maquina">
-                <option>Seleccione</option>
-                <option>Compresor Atlas</option>
-                <option>Chiller York</option>
-                <option value="nueva">
-                    + Agregar nueva máquina
-                </option>
-            </select>
-
-        </div>
-
-        <div class="field">
-            <label>Activo</label>
-
-            <select id="activo">
-                <option>Seleccione</option>
-                <option>AT-001</option>
-                <option>AT-002</option>
-                <option value="nuevo">
-                    + Agregar nuevo activo
-                </option>
-            </select>
-
-        </div>
-
-    </div>
-
-    <div class="row">
-
-        <div class="field"
-             id="nuevaMaquinaDiv"
-             style="display:none;">
-
-            <label>Nueva máquina</label>
-            <input type="text">
-
-        </div>
-
-        <div class="field"
-             id="nuevoActivoDiv"
-             style="display:none;">
-
-            <label>Nuevo activo</label>
-            <input type="text">
-
-        </div>
-
-    </div>
-
-    <div class="row">
-
-        <div class="field">
-            <label>Fecha creación informe</label>
-            <input type="date" id="fechaCreacion">
-        </div>
-
-        <div class="field">
-            <label>Fecha finalización informe</label>
-            <input type="date">
-        </div>
+        <input id="direccion"
+               class="readonly"
+               readonly>
 
     </div>
 
 </div>
 
-
-
-<div class="section">
-
-    <h2>Desarrollo Técnico</h2>
+<div class="row">
 
     <div class="field">
-        <label>Tipo de falla</label>
 
-        <select>
-            <option>Seleccione</option>
-            <option>Operativo</option>
-            <option>Intempestivo</option>
-            <option>Envejecimiento</option>
-            <option>Capacitación</option>
+        <label>Teléfono</label>
+
+        <input id="telefono"
+               class="readonly"
+               readonly>
+
+    </div>
+
+    <div class="field">
+
+        <label>Persona encargada</label>
+
+        <input id="encargado"
+               class="readonly"
+               readonly>
+
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="field">
+
+        <label>Cargo</label>
+
+        <input id="cargo"
+               class="readonly"
+               readonly>
+
+    </div>
+
+    <div class="field">
+
+        <label>Prioridad</label>
+
+        <input id="prioridad"
+               class="readonly"
+               readonly>
+
+    </div>
+
+</div>
+
+<div class="field">
+
+    <label>Novedad reportada</label>
+
+    <textarea id="novedad"
+              class="readonly"
+              readonly></textarea>
+
+</div>
+
+</div>
+
+<!-- ==========================================
+     ETAPA 3
+     INFORMACIÓN GENERAL
+========================================== -->
+
+<div class="card" id="ejecucion">
+
+<h2 class="section-title">
+
+🔧 Información General
+
+</h2>
+
+<!-- ==========================================
+     INFORMACIÓN GENERAL EDITABLE
+========================================== -->
+
+<div class="row">
+
+    <div class="field">
+
+        <label>Máquina</label>
+
+        <select id="maquina">
+
+            <option value="">Seleccione una máquina</option>
+
+            <!-- Estas opciones vendrán desde Airtable -->
+
+            <option>Compresor Atlas</option>
+
+            <option>Chiller York</option>
+
+            <option>Torre de enfriamiento</option>
+
+            <option value="nueva">
+
+                + Agregar nueva máquina
+
+            </option>
+
         </select>
 
     </div>
 
-    <br>
+    <div class="field">
+
+        <label>Activo</label>
+
+        <select id="activo">
+
+            <option value="">Seleccione un activo</option>
+
+            <!-- Estos activos vendrán desde Airtable -->
+
+            <option>AT-001</option>
+
+            <option>AT-002</option>
+
+            <option>AT-003</option>
+
+            <option value="nuevo">
+
+                + Agregar nuevo activo
+
+            </option>
+
+        </select>
+
+    </div>
+
+</div>
+
+<!-- NUEVA MÁQUINA Y NUEVO ACTIVO -->
+
+<div class="row">
+
+    <div class="field"
+
+         id="nuevaMaquinaDiv"
+
+         style="display:none;">
+
+        <label>Nueva máquina</label>
+
+        <input
+
+            type="text"
+
+            id="nuevaMaquina"
+
+            placeholder="Ingrese el nombre de la máquina">
+
+    </div>
+
+    <div class="field"
+
+         id="nuevoActivoDiv"
+
+         style="display:none;">
+
+        <label>Nuevo activo</label>
+
+        <input
+
+            type="text"
+
+            id="nuevoActivo"
+
+            placeholder="Ingrese el nuevo activo">
+
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="field">
+
+        <label>Fecha creación informe</label>
+
+        <input
+
+            type="date"
+
+            id="fechaCreacion">
+
+    </div>
+
+    <div class="field">
+
+        <label>Fecha finalización informe</label>
+
+        <input
+
+            type="date"
+
+            id="fechaFinalizacion">
+
+    </div>
+
+</div>
+
+</div>
+
+<!-- ==========================================
+     DESARROLLO TÉCNICO
+========================================== -->
+
+<div class="card">
+
+<h2 class="section-title">
+
+🛠 Desarrollo Técnico
+
+</h2>
+
+<div class="field">
+
+    <label>Tipo de falla</label>
+
+    <select id="tipoFalla">
+
+        <option value="">Seleccione</option>
+
+        <option>Operativo</option>
+
+        <option>Intempestivo</option>
+
+        <option>Envejecimiento</option>
+
+        <option>Capacitación</option>
+
+    </select>
+
+</div>
+
+<div class="field">
 
     <label>Diagnóstico</label>
-    <textarea></textarea>
 
-    <br><br>
+    <textarea id="diagnostico"></textarea>
+
+</div>
+
+<div class="field">
 
     <label>Actividades realizadas</label>
-    <textarea></textarea>
 
-    <br><br>
+    <textarea id="actividades"></textarea>
+
+</div>
+
+<div class="field">
 
     <label>Repuestos instalados</label>
-    <textarea></textarea>
 
-    <br><br>
+    <textarea id="repuestosInstalados"></textarea>
+
+</div>
+
+<div class="field">
 
     <label>Repuestos pendientes</label>
-    <textarea></textarea>
 
-    <br><br>
+    <textarea id="repuestosPendientes"></textarea>
+
+</div>
+
+<div class="field">
 
     <label>Observaciones</label>
-    <textarea></textarea>
+
+    <textarea id="observaciones"></textarea>
+
+</div>
 
 </div>
 
 
+    <!-- ==========================================
+     ETAPA 5
+     EVIDENCIAS
+========================================== -->
 
+<div class="card" id="cierre">
 
-<div class="section">
+<h2 class="section-title">
 
-    <h2>Evidencias</h2>
+📷 Evidencias
 
-    <div class="row">
+</h2>
 
-        <div class="field">
-            <label>Imágenes</label>
-            <input type="file" accept="image/*" multiple>
-        </div>
+<div class="row">
 
-        <div class="field">
-            <label>Videos</label>
-            <input type="file" accept="video/*" multiple>
-        </div>
+    <div class="field">
+
+        <label>Imágenes</label>
+
+        <input
+            type="file"
+            accept="image/*"
+            multiple>
+
+    </div>
+
+    <div class="field">
+
+        <label>Videos</label>
+
+        <input
+            type="file"
+            accept="video/*"
+            multiple>
 
     </div>
 
 </div>
 
+</div>
 
-<div class="section">
+<!-- ==========================================
+     ETAPA 6
+     RESPONSABLES Y FIRMAS
+========================================== -->
 
-    <h2>Responsables</h2>
+<div class="card">
+
+<h2 class="section-title">
+
+✍️ Cierre del servicio
+
+</h2>
+
+<div class="row">
 
     <div class="field">
-        <label>Nombre técnico</label>
-        <input type="text">
+
+        <label>Nombre completo del técnico</label>
+
+        <input
+            type="text"
+            id="tecnico">
+
     </div>
 
-    <br>
-
     <div class="field">
+
         <label>Responsable que recibe</label>
-        <input type="text">
-    </div>
 
-    <br>
+        <input
+            type="text"
+            id="responsable">
 
-    <div class="field">
-        <label>Cargo</label>
-        <input type="text">
     </div>
 
 </div>
 
-<div class="section">
+<div class="row">
+
+    <div class="field">
+
+        <label>Cargo</label>
+
+        <input
+            type="text"
+            id="cargoRecibe">
+
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="field">
+
+        <label>Firma del técnico</label>
+
+        <input
+            type="file"
+            accept="image/*">
+
+    </div>
+
+    <div class="field">
+
+        <label>Firma del cliente</label>
+
+        <input
+            type="file"
+            accept="image/*">
+
+    </div>
+
+</div>
+
+</div>
+
+<!-- ==========================================
+     ETAPA 7
+     BOTONES DE ACCIÓN
+========================================== -->
+
+<div class="card">
+
+<h2 class="section-title">
+
+⚙️ Acciones
+
+</h2>
+
+<div class="actions">
 
     <button onclick="window.print()">
-        Generar PDF
+        📄 Generar PDF
     </button>
 
     <button>
-        Enviar correo
+        📧 Enviar correo
     </button>
 
     <button>
-        Guardar Airtable
+        📱 WhatsApp
+    </button>
+
+    <button>
+        ☁️ Airtable
+    </button>
+
+    <button>
+        💾 Guardar borrador
     </button>
 
 </div>
 
+</div>
+
+</div>
+
+<!-- ==========================================
+     ETAPA 8
+     JAVASCRIPT
+========================================== -->
 
 <script>
 
+/* Fecha automática */
+
 const hoy = new Date();
 
-document.getElementById("fechaCreacion").value =
+document.getElementById(
+    "fechaCreacion"
+).value =
 hoy.toISOString().split("T")[0];
 
-document.getElementById("sgi").value =
+/* Datos de prueba */
+
+document.getElementById(
+    "sgi"
+).value =
 "SGI-2026-0001";
 
-document.getElementById("programacion").value =
+document.getElementById(
+    "programacion"
+).value =
 "PRG-1001";
 
-document.getElementById("maquina")
-.addEventListener("change", function(){
+document.getElementById(
+    "clienteNombre"
+).value =
+"Cliente de prueba";
 
-    document.getElementById("nuevaMaquinaDiv")
-    .style.display =
+document.getElementById(
+    "direccion"
+).value =
+"Medellín";
+
+document.getElementById(
+    "telefono"
+).value =
+"3000000000";
+
+document.getElementById(
+    "encargado"
+).value =
+"Juan Pérez";
+
+document.getElementById(
+    "cargo"
+).value =
+"Administrador";
+
+document.getElementById(
+    "prioridad"
+).value =
+"Alta";
+
+document.getElementById(
+    "novedad"
+).value =
+"Equipo no enciende.";
+
+/* Mostrar nueva máquina */
+
+document.getElementById(
+    "maquina"
+).addEventListener(
+    "change",
+    function(){
+
+    document.getElementById(
+        "nuevaMaquinaDiv"
+    ).style.display =
     this.value === "nueva"
     ? "block"
     : "none";
 
 });
 
-document.getElementById("activo")
-.addEventListener("change", function(){
+/* Mostrar nuevo activo */
 
-    document.getElementById("nuevoActivoDiv")
-    .style.display =
+document.getElementById(
+    "activo"
+).addEventListener(
+    "change",
+    function(){
+
+    document.getElementById(
+        "nuevoActivoDiv"
+    ).style.display =
     this.value === "nuevo"
     ? "block"
     : "none";
@@ -365,3 +856,6 @@ document.getElementById("activo")
 });
 
 </script>
+
+</body>
+</html>
