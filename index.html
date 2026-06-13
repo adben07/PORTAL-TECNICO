@@ -127,3 +127,241 @@
 
 </body>
 </html>
+
+
+<div class="section">
+
+    <h2>Información General</h2>
+
+    <div class="row">
+
+        <div class="field">
+            <label>Consecutivo SGI</label>
+            <input id="sgi" readonly>
+        </div>
+
+        <div class="field">
+            <label>Programación</label>
+            <input id="programacion" readonly>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="field">
+            <label>Máquina</label>
+
+            <select id="maquina">
+                <option>Seleccione</option>
+                <option>Compresor Atlas</option>
+                <option>Chiller York</option>
+                <option value="nueva">
+                    + Agregar nueva máquina
+                </option>
+            </select>
+
+        </div>
+
+        <div class="field">
+            <label>Activo</label>
+
+            <select id="activo">
+                <option>Seleccione</option>
+                <option>AT-001</option>
+                <option>AT-002</option>
+                <option value="nuevo">
+                    + Agregar nuevo activo
+                </option>
+            </select>
+
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="field"
+             id="nuevaMaquinaDiv"
+             style="display:none;">
+
+            <label>Nueva máquina</label>
+            <input type="text">
+
+        </div>
+
+        <div class="field"
+             id="nuevoActivoDiv"
+             style="display:none;">
+
+            <label>Nuevo activo</label>
+            <input type="text">
+
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="field">
+            <label>Fecha creación informe</label>
+            <input type="date" id="fechaCreacion">
+        </div>
+
+        <div class="field">
+            <label>Fecha finalización informe</label>
+            <input type="date">
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<div class="section">
+
+    <h2>Desarrollo Técnico</h2>
+
+    <div class="field">
+        <label>Tipo de falla</label>
+
+        <select>
+            <option>Seleccione</option>
+            <option>Operativo</option>
+            <option>Intempestivo</option>
+            <option>Envejecimiento</option>
+            <option>Capacitación</option>
+        </select>
+
+    </div>
+
+    <br>
+
+    <label>Diagnóstico</label>
+    <textarea></textarea>
+
+    <br><br>
+
+    <label>Actividades realizadas</label>
+    <textarea></textarea>
+
+    <br><br>
+
+    <label>Repuestos instalados</label>
+    <textarea></textarea>
+
+    <br><br>
+
+    <label>Repuestos pendientes</label>
+    <textarea></textarea>
+
+    <br><br>
+
+    <label>Observaciones</label>
+    <textarea></textarea>
+
+</div>
+
+
+
+
+<div class="section">
+
+    <h2>Evidencias</h2>
+
+    <div class="row">
+
+        <div class="field">
+            <label>Imágenes</label>
+            <input type="file" accept="image/*" multiple>
+        </div>
+
+        <div class="field">
+            <label>Videos</label>
+            <input type="file" accept="video/*" multiple>
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="section">
+
+    <h2>Responsables</h2>
+
+    <div class="field">
+        <label>Nombre técnico</label>
+        <input type="text">
+    </div>
+
+    <br>
+
+    <div class="field">
+        <label>Responsable que recibe</label>
+        <input type="text">
+    </div>
+
+    <br>
+
+    <div class="field">
+        <label>Cargo</label>
+        <input type="text">
+    </div>
+
+</div>
+
+<div class="section">
+
+    <button onclick="window.print()">
+        Generar PDF
+    </button>
+
+    <button>
+        Enviar correo
+    </button>
+
+    <button>
+        Guardar Airtable
+    </button>
+
+</div>
+
+
+<script>
+
+const hoy = new Date();
+
+document.getElementById("fechaCreacion").value =
+hoy.toISOString().split("T")[0];
+
+document.getElementById("sgi").value =
+"SGI-2026-0001";
+
+document.getElementById("programacion").value =
+"PRG-1001";
+
+document.getElementById("maquina")
+.addEventListener("change", function(){
+
+    document.getElementById("nuevaMaquinaDiv")
+    .style.display =
+    this.value === "nueva"
+    ? "block"
+    : "none";
+
+});
+
+document.getElementById("activo")
+.addEventListener("change", function(){
+
+    document.getElementById("nuevoActivoDiv")
+    .style.display =
+    this.value === "nuevo"
+    ? "block"
+    : "none";
+
+});
+
+</script>
